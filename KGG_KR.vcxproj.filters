@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Classes">
+      <UniqueIdentifier>{099b4619-8c24-4ed3-bd21-dd99e9dabe89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Classes\Buffers">
+      <UniqueIdentifier>{d4f38c3b-b4f9-4b3e-9f9d-509bbdb7780e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses">
+      <UniqueIdentifier>{9a2d4d86-bf90-4a86-96f6-f5b3509b022b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models">
+      <UniqueIdentifier>{41fd1635-bd0a-472a-838a-ba9b54ee6062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\bunny">
+      <UniqueIdentifier>{bc5aee0a-3b9a-4fce-8a60-57db8c9aba15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Textures">
+      <UniqueIdentifier>{518243f1-c2e4-46c7-9cd0-c29cd88ddb7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\chair">
+      <UniqueIdentifier>{7bbf1f1a-152d-49af-9daa-c9e98b3550e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\sofa">
+      <UniqueIdentifier>{f1633e8e-5826-400b-ad4e-d352cf79d5c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\sword">
+      <UniqueIdentifier>{cfeff3e9-54d1-4f6e-9751-847ec0e0cf28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\sword\textures">
+      <UniqueIdentifier>{91e86847-99a4-401a-a53f-78a626c21995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\scroll">
+      <UniqueIdentifier>{65b375aa-0a18-403d-b58a-7d8faa87beec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\scroll\textures">
+      <UniqueIdentifier>{b91674b0-aacd-4961-adbe-e634cb6842ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Shaders">
+      <UniqueIdentifier>{b44fa20c-cee0-4570-acea-43db234a03cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\curtains">
+      <UniqueIdentifier>{bf307675-bd7c-4b58-842d-eb96e9d7e562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\floor">
+      <UniqueIdentifier>{91fbeabb-8413-4531-bac4-9588fe64e78b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\chess_floor">
+      <UniqueIdentifier>{9b33a4d9-b8b0-4a4a-be1f-7025f5d56b54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\leather_sofa">
+      <UniqueIdentifier>{fa07b5f1-ff8f-4fa5-bf25-67f363b01198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\telephone">
+      <UniqueIdentifier>{8cfebe38-1e2a-4c45-b2c0-e1d3cc32fef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\venera">
+      <UniqueIdentifier>{4288ed1c-d793-400b-9f6a-2a9946492699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\floor_lamp">
+      <UniqueIdentifier>{10d2b838-2649-4e05-a70f-6ac74cc3363a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\agent">
+      <UniqueIdentifier>{432030f6-7628-4386-8129-f08acee40ffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\owl">
+      <UniqueIdentifier>{a29419ea-2c94-4463-b2a4-727af397ea59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\rick_owens">
+      <UniqueIdentifier>{bceb3b80-c17b-42e8-a069-719d300d9929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\lowpoly_table">
+      <UniqueIdentifier>{3a5030ca-d98d-4634-9e26-93099f21be98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\armchair">
+      <UniqueIdentifier>{c47dfb46-89e0-4687-96de-80fc5db1ab73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Исходные файлы\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="shaderClass.cpp">
+      <Filter>Исходные файлы\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Исходные файлы\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="EBO.cpp">
+      <Filter>Исходные файлы\Classes\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Исходные файлы\Classes\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Исходные файлы\Classes\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Исходные файлы\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Исходные файлы\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Func.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shaderClass.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="EBO.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Func.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="green.png">
+      <Filter>Файлы ресурсов\Resourses\Textures</Filter>
+    </Image>
+    <Image Include="Resourses\models\bunny\baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\bunny</Filter>
+    </Image>
+    <Image Include="Resourses\models\bunny\metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\bunny</Filter>
+    </Image>
+    <Image Include="Resourses\Models\chair\Scene_-_Root_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\chair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\chair\Scene_-_Root_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\chair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\chair\Scene_-_Root_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\chair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_baseColor.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_baseColor.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\sword\textures\Object001_mtl_baseColor.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\sword\textures</Filter>
+    </Image>
+    <Image Include="Resourses\Models\scroll\textures\lambert4SG_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\scroll\textures</Filter>
+    </Image>
+    <Image Include="Resourses\Textures\floor.jpg">
+      <Filter>Файлы ресурсов\Resourses\Textures</Filter>
+    </Image>
+    <Image Include="Resourses\Models\curtains\textures\Velvet_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\curtains</Filter>
+    </Image>
+    <Image Include="Resourses\Models\floor\textures\floor_texture_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\floor</Filter>
+    </Image>
+    <Image Include="Resourses\Models\chess_floor\textures\Material.001_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\chess_floor</Filter>
+    </Image>
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\leather_sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\leather_sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\leather_sofa</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\knob_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\knob_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\material_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\material_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\material_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\material_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\phone_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\phone_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\phone_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\phone_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\body_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\body_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\body_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\body_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\botton_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\botton_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\botton_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\botton_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\cable_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\cable_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\cable_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\cable_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\dial_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\dial_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\dial_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\dial_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\hanger_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\hanger_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\hanger_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\hanger_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\knob_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\telephone\textures\knob_emissive.jpeg">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </Image>
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\venera</Filter>
+    </Image>
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\venera</Filter>
+    </Image>
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\venera</Filter>
+    </Image>
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\floor_lamp</Filter>
+    </Image>
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_emissive.png">
+      <Filter>Файлы ресурсов\Resourses\Models\floor_lamp</Filter>
+    </Image>
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\floor_lamp</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\eyes_left_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\face_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\gloves_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\hands_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\Jacket.001_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\lashes_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\material_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\Shirt.001_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\agent\textures\trousers_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </Image>
+    <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\owl</Filter>
+    </Image>
+    <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\owl</Filter>
+    </Image>
+    <Image Include="Resourses\Models\rick_owens\textures\defaultMat_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\rick_owens</Filter>
+    </Image>
+    <Image Include="Resourses\Models\rick_owens\textures\defaultMat_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\rick_owens</Filter>
+    </Image>
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\lowpoly_table</Filter>
+    </Image>
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_metallicRoughness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\lowpoly_table</Filter>
+    </Image>
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\lowpoly_table</Filter>
+    </Image>
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_diffuse.png">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_normal.png">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_occlusion.png">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </Image>
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_specularGlossiness.png">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourses\models\bunny\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\bunny</Filter>
+    </None>
+    <None Include="Resourses\models\bunny\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\bunny</Filter>
+    </None>
+    <None Include="Resourses\Models\chair\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\chair</Filter>
+    </None>
+    <None Include="Resourses\Models\chair\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\chair</Filter>
+    </None>
+    <None Include="Resourses\Models\sofa\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </None>
+    <None Include="Resourses\Models\sofa\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\sofa</Filter>
+    </None>
+    <None Include="Resourses\Models\sword\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\sword</Filter>
+    </None>
+    <None Include="Resourses\Models\sword\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\sword</Filter>
+    </None>
+    <None Include="Resourses\Models\scroll\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\scroll</Filter>
+    </None>
+    <None Include="Resourses\Models\scroll\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\scroll</Filter>
+    </None>
+    <None Include="Resourses\Models\curtains\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\curtains</Filter>
+    </None>
+    <None Include="Resourses\Models\curtains\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\curtains</Filter>
+    </None>
+    <None Include="Resourses\Models\floor\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\floor</Filter>
+    </None>
+    <None Include="Resourses\Models\floor\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\floor</Filter>
+    </None>
+    <None Include="Resourses\Models\chess_floor\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\chess_floor</Filter>
+    </None>
+    <None Include="Resourses\Models\chess_floor\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\chess_floor</Filter>
+    </None>
+    <None Include="Resourses\Models\leather_sofa\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\leather_sofa</Filter>
+    </None>
+    <None Include="Resourses\Models\leather_sofa\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\leather_sofa</Filter>
+    </None>
+    <None Include="Resourses\Models\telephone\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </None>
+    <None Include="Resourses\Models\telephone\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\telephone</Filter>
+    </None>
+    <None Include="Resourses\Models\floor_lamp\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\floor_lamp</Filter>
+    </None>
+    <None Include="Resourses\Models\floor_lamp\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\floor_lamp</Filter>
+    </None>
+    <None Include="Resourses\Models\agent\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </None>
+    <None Include="Resourses\Models\agent\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\agent</Filter>
+    </None>
+    <None Include="Resourses\Models\venera\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\venera</Filter>
+    </None>
+    <None Include="Resourses\Models\venera\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\venera</Filter>
+    </None>
+    <None Include="Resourses\Models\owl\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\owl</Filter>
+    </None>
+    <None Include="Resourses\Models\owl\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\owl</Filter>
+    </None>
+    <None Include="Resourses\Models\rick_owens\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\rick_owens</Filter>
+    </None>
+    <None Include="Resourses\Models\rick_owens\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\rick_owens</Filter>
+    </None>
+    <None Include="Resourses\Models\lowpoly_table\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\lowpoly_table</Filter>
+    </None>
+    <None Include="Resourses\Models\lowpoly_table\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\lowpoly_table</Filter>
+    </None>
+    <None Include="Resourses\Models\armchair\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </None>
+    <None Include="Resourses\Models\armchair\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resourses\Shaders\fragment.txt">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </Text>
+    <Text Include="Resourses\Shaders\lightFrag.txt">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </Text>
+    <Text Include="Resourses\Shaders\lightVert.txt">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </Text>
+    <Text Include="Resourses\Shaders\vertex.txt">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

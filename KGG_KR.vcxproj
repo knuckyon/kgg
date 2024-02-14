@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7dbe35f4-bc77-4a84-a0ac-de2672e9d9ac}</ProjectGuid>
+    <RootNamespace>KGGKR</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\kosti\OneDrive\Рабочий стол\KGG_KR\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\kosti\OneDrive\Рабочий стол\KGG_KR\Libraries\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\kosti\OneDrive\Рабочий стол\KGG_KR\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\kosti\OneDrive\Рабочий стол\KGG_KR\Libraries\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\LIBRARIES\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\LIBRARIES\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="EBO.cpp" />
+    <ClCompile Include="Func.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="shaderClass.cpp" />
+    <ClCompile Include="stb.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="VAO.cpp" />
+    <ClCompile Include="VBO.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="EBO.h" />
+    <ClInclude Include="Func.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="VAO.h" />
+    <ClInclude Include="VBO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="green.png" />
+    <Image Include="Resourses\Models\agent\textures\eyes_left_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\face_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\gloves_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\hands_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\Jacket.001_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\lashes_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\material_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\Shirt.001_baseColor.png" />
+    <Image Include="Resourses\Models\agent\textures\trousers_baseColor.png" />
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_diffuse.png" />
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_normal.png" />
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_occlusion.png" />
+    <Image Include="Resourses\Models\armchair\textures\lambert10SG_specularGlossiness.png" />
+    <Image Include="Resourses\models\bunny\baseColor.png" />
+    <Image Include="Resourses\models\bunny\metallicRoughness.png" />
+    <Image Include="Resourses\Models\chair\Scene_-_Root_baseColor.png" />
+    <Image Include="Resourses\Models\chair\Scene_-_Root_metallicRoughness.png" />
+    <Image Include="Resourses\Models\chair\Scene_-_Root_normal.png" />
+    <Image Include="Resourses\Models\chess_floor\textures\Material.001_baseColor.png" />
+    <Image Include="Resourses\Models\curtains\textures\Velvet_baseColor.png" />
+    <Image Include="Resourses\Models\floor\textures\floor_texture_baseColor.png" />
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_baseColor.png" />
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_emissive.png" />
+    <Image Include="Resourses\Models\floor_lamp\textures\Lamp_metallicRoughness.png" />
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_baseColor.png" />
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_metallicRoughness.png" />
+    <Image Include="Resourses\Models\leather_sofa\textures\Material.004_normal.png" />
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_baseColor.png" />
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_metallicRoughness.png" />
+    <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_normal.png" />
+    <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_baseColor.png" />
+    <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_normal.png" />
+    <Image Include="Resourses\Models\rick_owens\textures\defaultMat_baseColor.png" />
+    <Image Include="Resourses\Models\rick_owens\textures\defaultMat_normal.png" />
+    <Image Include="Resourses\Models\scroll\textures\lambert4SG_baseColor.png" />
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_baseColor.jpeg" />
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_metallicRoughness.png" />
+    <Image Include="Resourses\Models\sofa\textures\Leather_mat_normal.png" />
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_baseColor.jpeg" />
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_metallicRoughness.png" />
+    <Image Include="Resourses\Models\sofa\textures\wood_mat_normal.png" />
+    <Image Include="Resourses\Models\sword\textures\Object001_mtl_baseColor.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\body_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\body_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\body_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\body_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\botton_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\botton_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\botton_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\botton_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\cable_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\cable_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\cable_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\cable_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\dial_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\dial_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\dial_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\dial_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\hanger_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\hanger_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\hanger_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\hanger_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\knob_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\knob_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\knob_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\knob_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\material_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\material_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\material_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\material_normal.png" />
+    <Image Include="Resourses\Models\telephone\textures\phone_baseColor.png" />
+    <Image Include="Resourses\Models\telephone\textures\phone_emissive.jpeg" />
+    <Image Include="Resourses\Models\telephone\textures\phone_metallicRoughness.png" />
+    <Image Include="Resourses\Models\telephone\textures\phone_normal.png" />
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_baseColor.png" />
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_metallicRoughness.png" />
+    <Image Include="Resourses\Models\venera\textures\VenusDeMilo_t_normal.png" />
+    <Image Include="Resourses\Textures\floor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resourses\Models\agent\scene.bin" />
+    <None Include="Resourses\Models\agent\scene.gltf" />
+    <None Include="Resourses\Models\armchair\scene.bin" />
+    <None Include="Resourses\Models\armchair\scene.gltf" />
+    <None Include="Resourses\models\bunny\scene.bin" />
+    <None Include="Resourses\models\bunny\scene.gltf" />
+    <None Include="Resourses\Models\chair\scene.bin" />
+    <None Include="Resourses\Models\chair\scene.gltf" />
+    <None Include="Resourses\Models\chess_floor\scene.bin" />
+    <None Include="Resourses\Models\chess_floor\scene.gltf" />
+    <None Include="Resourses\Models\curtains\scene.bin" />
+    <None Include="Resourses\Models\curtains\scene.gltf" />
+    <None Include="Resourses\Models\floor\scene.bin" />
+    <None Include="Resourses\Models\floor\scene.gltf" />
+    <None Include="Resourses\Models\floor_lamp\scene.bin" />
+    <None Include="Resourses\Models\floor_lamp\scene.gltf" />
+    <None Include="Resourses\Models\leather_sofa\scene.bin" />
+    <None Include="Resourses\Models\leather_sofa\scene.gltf" />
+    <None Include="Resourses\Models\lowpoly_table\scene.bin" />
+    <None Include="Resourses\Models\lowpoly_table\scene.gltf" />
+    <None Include="Resourses\Models\owl\scene.bin" />
+    <None Include="Resourses\Models\owl\scene.gltf" />
+    <None Include="Resourses\Models\rick_owens\scene.bin" />
+    <None Include="Resourses\Models\rick_owens\scene.gltf" />
+    <None Include="Resourses\Models\scroll\scene.bin" />
+    <None Include="Resourses\Models\scroll\scene.gltf" />
+    <None Include="Resourses\Models\sofa\scene.bin" />
+    <None Include="Resourses\Models\sofa\scene.gltf" />
+    <None Include="Resourses\Models\sword\scene.bin" />
+    <None Include="Resourses\Models\sword\scene.gltf" />
+    <None Include="Resourses\Models\telephone\scene.bin" />
+    <None Include="Resourses\Models\telephone\scene.gltf" />
+    <None Include="Resourses\Models\venera\scene.bin" />
+    <None Include="Resourses\Models\venera\scene.gltf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resourses\Shaders\fragment.txt" />
+    <Text Include="Resourses\Shaders\lightFrag.txt" />
+    <Text Include="Resourses\Shaders\lightVert.txt" />
+    <Text Include="Resourses\Shaders\vertex.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
