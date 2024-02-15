@@ -134,4 +134,4 @@ bool loadOBJ(const char* path, std::vector<glm::vec3>& outVertices, std::vector<
         outTextures.push_back(vt);
     }
     return true;
-}
+};

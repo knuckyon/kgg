@@ -11,42 +11,43 @@ using json = nlohmann::json;
 class Model
 {
 public:
-	// Loads in a model from a file and stores tha information in 'data', 'JSON', and 'file'
+	//загрузка модели из файла, сохранение в 'data', 'JSON', и 'file'
 	Model(const char* file);
+	//копирования констр
+	Model(const Model& original);
 
 	void Draw(Shader& shader, Camera& camera, Transform moving);
 
 private:
-	// Variables for easy access
 	const char* file;
 	std::vector<unsigned char> data;
 	json JSON;
 
-	// All the meshes and transformations
+	// все сетки и трансофрмации
 	std::vector<Mesh> meshes;
 	std::vector<glm::vec3> translationsMeshes;
 	std::vector<glm::quat> rotationsMeshes;
 	std::vector<glm::vec3> scalesMeshes;
 	std::vector<glm::mat4> matricesMeshes;
 
-	// Prevents textures from being loaded twice
+	// предотвращение повт загрузки текстур
 	std::vector<std::string> loadedTexName;
 	std::vector<Texture> loadedTex;
 
-	// Loads a single mesh by its index
+	// загрузка одной сетки по индексу
 	void loadMesh(unsigned int indMesh);
 
-	// Traverses a node recursively, so it essentially traverses all connected nodes
+	// рекурсивный обход узлов(обход всех узлов)
 	void traverseNode(unsigned int nextNode, glm::mat4 matrix = glm::mat4(1.0f));
 
-	// Gets the binary data from a file
+	// получение бинарника из файла
 	std::vector<unsigned char> getData();
-	// Interprets the binary data into floats, indices, and textures
+	// бинарник в floats, indices, textures
 	std::vector<float> getFloats(json accessor);
 	std::vector<GLuint> getIndices(json accessor);
 	std::vector<Texture> getTextures();
 
-	// Assembles all the floats into vertices
+	// собирание float в вершины
 	std::vector<Vertex> assembleVertices
 	(
 		std::vector<glm::vec3> positions,
@@ -54,7 +55,7 @@ private:
 		std::vector<glm::vec2> texUVs
 	);
 
-	// Helps with the assembly from above by grouping floats
+	// группировка float при сборке в верш
 	std::vector<glm::vec2> groupFloatsVec2(std::vector<float> floatVec);
 	std::vector<glm::vec3> groupFloatsVec3(std::vector<float> floatVec);
 	std::vector<glm::vec4> groupFloatsVec4(std::vector<float> floatVec);

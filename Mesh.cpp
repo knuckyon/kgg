@@ -8,16 +8,16 @@ Mesh::Mesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::v
 	Mesh::textures = textures;
 
 	VAO.Bind();
-	// Generates Vertex Buffer Object and links it to vertices
+	// ген VBO и линковка к верш
 	VBO VBO(vertices);
-	// Generates Element Buffer Object and links it to indices
+	// ген EBO и линковка к верш
 	EBO EBO(indices);
-	// Links VBO attributes such as coordinates and colors to VAO
+	// VBO данные в VAO
 	VAO.LinkAttrib(VBO, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
 	VAO.LinkAttrib(VBO, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)(3 * sizeof(float)));
 	VAO.LinkAttrib(VBO, 2, 3, GL_FLOAT, sizeof(Vertex), (void*)(6 * sizeof(float)));
 	VAO.LinkAttrib(VBO, 3, 2, GL_FLOAT, sizeof(Vertex), (void*)(9 * sizeof(float)));
-	// Unbind all to prevent accidentally modifying them
+	//отбиндить
 	VAO.Unbind();
 	VBO.Unbind();
 	EBO.Unbind();
@@ -35,11 +35,11 @@ void Mesh::Draw
 	glm::vec3 scale
 )
 {
-	// Bind shader to be able to access uniforms
+	//активация в объекта класса шейдеров, в кот будут передаваться unifowm переменные
 	shader.Activate();
 	VAO.Bind();
 
-	// Keep track of how many of each type of textures we have
+	// учет текстур
 	unsigned int numDiffuse = 0;
 	unsigned int numSpecular = 0;
 
@@ -59,7 +59,7 @@ void Mesh::Draw
 		textures[i].texUnit(shader, (type + num).c_str(), i);
 		textures[i].Bind();
 	}
-	// Take care of the camera Matrix
+	// матрциа камеры учитывать
 	glUniform3f(glGetUniformLocation(shader.ID, "camPos"), camera.Position.x, camera.Position.y, camera.Position.z);
 	camera.Matrix(shader, "camMatrix");
 
@@ -77,12 +77,12 @@ void Mesh::Draw
 	//rot = glm::mat4_cast(moving.rotQuat);
 	//sca = glm::scale(sca, moving.scaVec);
 
-	// Push the matrices to the vertex shader
+	//матрицы в верш шейдер
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "translation"), 1, GL_FALSE, glm::value_ptr(moving.transMat));//!
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "rotation"), 1, GL_FALSE, glm::value_ptr(moving.rotMat));//@
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "scale"), 1, GL_FALSE, glm::value_ptr(moving.scaMat));//!
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "model"), 1, GL_FALSE, glm::value_ptr(matrix));
 
-	// Draw the actual mesh
+	//отрисовать текущей сетки
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 }

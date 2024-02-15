@@ -10,4 +10,5 @@
 #include <algorithm>
 
 bool loadOBJ(const char* path, std::vector<glm::vec3>& outVertices, std::vector<glm::vec2>& outTextures, std::vector<glm::vec3>& outNormals);
+
 #endif
