@@ -160,7 +160,17 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             isRotateStatue = false;
         break;
     case GLFW_KEY_F:
+        {
+        //owlPos = glm::vec3(525.0f, -75.0f, -590.0f);
         isFlying = true;
+        }
+        break;
+    }
+    
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+    {
+        isFlying = false;
+        owlPos = glm::vec3(525.0f, -75.0f, -590.0f);
     }
 
     if (glfwGetKey(window, GLFW_KEY_UP) == (GLFW_PRESS || GLFW_REPEAT))
@@ -190,16 +200,31 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     }
 }
 
-void cycleOY(GLfloat& y,GLfloat x, ParabConst comp)
+void cycleOY(GLfloat& y, GLfloat& x, ParabConst comp)
 {
+    cout << "vizov Y:";
     y = comp.a * (x - comp.x0) * (x - comp.x0) + comp.y0;
+    cout << "owlPos.y " << y << endl;
+    this_thread::sleep_for(chrono::milliseconds(800));
 }
-void cycleOX(GLfloat &x, GLfloat delta, GLfloat end)
+void cycleOX(GLfloat& x, GLfloat& y, ParabConst comp, GLfloat delta, GLfloat end)
 {
-    while (x < end)
+    cout << "vizov X: ";
+   
+    //this_thread::sleep_for(chrono::milliseconds(500));
+    if (x < end)
+    {
+        isFlying = false;
+    }
+    while (x > end)
     {
         x += delta;
+        y = comp.a * (x - comp.x0) * (x - comp.x0) + comp.y0;
+       // cout << x << endl;
+        cout << "owlPos.x " << owlPos.x << endl;
+        this_thread::sleep_for(chrono::milliseconds(800));
     }
+    //isFlying = false;
 }
 ParabConst findParabComponents(glm::vec3 dot1, glm::vec3 dot2, glm::vec3 dot3)
 {
@@ -209,8 +234,4 @@ ParabConst findParabComponents(glm::vec3 dot1, glm::vec3 dot2, glm::vec3 dot3)
     temp.a = (dot1.y - dot2.y) / ((dot1.x - temp.x0) * (dot1.x - temp.x0) - (dot2.x - temp.x0) * (dot2.x - temp.x0));
     temp.y0 = dot1.y - temp.a * (dot1.x - temp.x0) * (dot1.x - temp.x0);
     return temp;
-  /*  let c = (y1 - y2) / (y2 - y3)
-    x0 = (-x1 ^ 2 + x2 ^ 2 + c * (x2 ^ 2 - x3 ^ 2)) / (2.0 * (-x1 + x2 + c * x2 - c * x3))
-    a = (y1 - y2) / ((x1 - x0) ^ 2 - (x2 - x0) ^ 2)
-    y0 = y1 - a * (x1 - x0) ^ 2*/
 }

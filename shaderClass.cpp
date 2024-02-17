@@ -1,5 +1,6 @@
 #include"shaderClass.h"
 
+
 // считать файл
 std::string get_file_contents(const char* filename)
 {

@@ -155,6 +155,9 @@
     <ClInclude Include="Func.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="green.png">

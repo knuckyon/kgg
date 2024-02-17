@@ -3,20 +3,14 @@
 namespace fs = std::filesystem;
 //------------------------------
 
+
+#include "globals.h"
 #include "Model.h"
 #include "Func.h"
-#include <set>
-#include <thread>
-
-//ASSIMP
-#include <assimp/config.h>
-
-// Define these only in *one* .cc file.
-#include "tinygltf/tiny_gltf.h"
 
 //4:3
-const unsigned int width = 1024;
-const unsigned int height = 768;
+//const unsigned int width = 1024;
+//const unsigned int height = 768;
 
 bool isRotateStatue = false;
 char directionStatue = 0;
@@ -280,29 +274,12 @@ int main()
 
 	// ИГРОВОЙ ЦИКЛ
 
-	float
-		elapsed = 0,
-		rotationHumanSkull = 0,
-		moveSkulls = 0,
-		angle = 0,
-		a = 2.f, _cos, _sin, ssin, phi = elapsed, // переменные лемнискаты Бернулли
-		x, y; // для параметрического уравнения лемнискаты Бернулли
-
-	glm::quat yY;
-
 	double startTime = glfwGetTime();
-	
-	typedef struct modelRotations
-	{
-		GLfloat angle = 0.4f;
-		glm::quat CW = glm::angleAxis(glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
-		glm::quat CC = glm::angleAxis(glm::radians(-angle), glm::vec3(0.0f, 1.0f, 0.0f));
-	}modelRotations;
 
 	modelRotations statue;
 
-
-	ParabConst owlParab = findParabComponents(owlPos, glm::vec3(500.0f, -55.0f, owlPos.z), glm::vec3(480.0f, -110.0f, owlPos.z));
+	ParabConst owlParab = findParabComponents(owlPos, glm::vec3(225.0f, 85.0f, owlPos.z), glm::vec3(-200.0f, 110.0f, owlPos.z));
+	//owlParab.a = -owlParab.a;
 
 	GLfloat owlX = owlPos.x;
 	while (!glfwWindowShouldClose(window))
@@ -319,7 +296,7 @@ int main()
 		// перепесктива
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
 		
-		//ОРИСОВКА ОБЪЕКТОВ МОДЕЛЕЙ НА СЦЕНЕ
+		//ОТРИСОВКА ОБЪЕКТОВ МОДЕЛЕЙ НА СЦЕНЕ
 		auto i = std::make_pair(modelObj.begin(), modelPT.begin());
 
 		for (; i.first != modelObj.end(); ++i.first, ++i.second)
@@ -343,13 +320,18 @@ int main()
 			{
 				if (isFlying)
 				{
-					std::thread xThread(cycleOX, owlPos.x, -5.0f, 300.0f);
-					std::thread yThread(cycleOY, owlPos.y, owlPos.x, owlParab);
-					//открыть поток приближения x
-					//
-					xThread.detach();
-					yThread.detach();
-
+					//std::thread xThread(cycleOX, std::ref(owlPos.x), -5.0f, 300.0f);
+					//std::thread yThread(cycleOY, std::ref(owlPos.y), std::ref(owlPos.x), owlParab);
+					////открыть поток приближения x
+					////
+					//xThread.detach();
+					//yThread.detach();
+					std::thread thx(cycleOX,std::ref(owlPos.x), std::ref(owlPos.y), owlParab, -3.0f, -400.f);
+					//std::thread thy(cycleOY, std::ref(owlPos.y), std::ref(owlPos.x), owlParab);
+					//cycleOY(owlPos.y, owlPos.x, owlParab);
+					
+					thx.detach();
+					//thy.detach();
 				}
 				(*i.second).transform.transVec = owlPos;
 			}

@@ -1,9 +1,9 @@
 #ifndef MODEL_CLASS_H
 #define MODEL_CLASS_H
 
-#include <json/json.hpp>
-#include<json/json.h>
+//#include <json/json.hpp>
 #include"Mesh.h"
+#include "globals.h"
 
 using json = nlohmann::json;
 
