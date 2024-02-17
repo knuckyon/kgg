@@ -63,24 +63,24 @@ void Mesh::Draw
 	glUniform3f(glGetUniformLocation(shader.ID, "camPos"), camera.Position.x, camera.Position.y, camera.Position.z);
 	camera.Matrix(shader, "camMatrix");
 
-	// Initialize matrices
-	//glm::mat4 trans = glm::mat4(1.0f);
-	//glm::mat4 rot = glm::mat4(1.0f);
-	//glm::mat4 sca = glm::mat4(1.0f);//!!!!!!
+	//Initialize matrices
+	glm::mat4 trans = glm::mat4(1.0f);
+	glm::mat4 rot = glm::mat4(1.0f);
+	glm::mat4 sca = glm::mat4(1.0f);//!!!!!!
 
 	// Transform the matrices to their correct form
-	/*trans = glm::translate(trans, translation);
-	rot = glm::mat4_cast(rotation);
-	sca = glm::scale(sca, scale);*/
+	/*trans = glm::translate(trans, moving.transVec);
+	rot = glm::mat4_cast(moving.rotQuat);
+	sca = glm::scale(sca, moving.scaVec);*/
 
-	//trans = glm::translate(trans, moving.transVec);
-	//rot = glm::mat4_cast(moving.rotQuat);
-	//sca = glm::scale(sca, moving.scaVec);
+	moving.transMat = glm::translate(trans, moving.transVec);
+	moving.rotMat = glm::mat4_cast(moving.rotQuat);
+	moving.scaMat = glm::scale(sca, moving.scaVec);
 
 	//матрицы в верш шейдер
-	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "translation"), 1, GL_FALSE, glm::value_ptr(moving.transMat));//!
-	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "rotation"), 1, GL_FALSE, glm::value_ptr(moving.rotMat));//@
-	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "scale"), 1, GL_FALSE, glm::value_ptr(moving.scaMat));//!
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "translation"), 1, GL_FALSE, glm::value_ptr(moving.transMat));//!moving.transMat
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "rotation"), 1, GL_FALSE, glm::value_ptr(moving.rotMat));//@moving.rotMat
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "scale"), 1, GL_FALSE, glm::value_ptr(moving.scaMat));//!moving.scaMat
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "model"), 1, GL_FALSE, glm::value_ptr(matrix));
 
 	//отрисовать текущей сетки

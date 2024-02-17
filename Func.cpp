@@ -1,5 +1,7 @@
 #include "Func.h"
 
+using namespace std;
+
 
 bool loadOBJ(const char* path, std::vector<glm::vec3>& outVertices, std::vector<glm::vec2>& outTextures, std::vector<glm::vec3>& outNormals)
 {
@@ -135,3 +137,80 @@ bool loadOBJ(const char* path, std::vector<glm::vec3>& outVertices, std::vector<
     }
     return true;
 };
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    switch (key)
+    {
+    case GLFW_KEY_Z: // анимация поворота (z)
+        if (action == GLFW_PRESS)
+        {
+            isRotateStatue = true;
+            directionStatue = 1;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_RELEASE)
+            isRotateStatue = false;
+        break;
+    case GLFW_KEY_X: // анимация поворота (z)
+        if (action == GLFW_PRESS)
+        {
+            isRotateStatue = true;
+            directionStatue = 0;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_RELEASE)
+            isRotateStatue = false;
+        break;
+    case GLFW_KEY_F:
+        isFlying = true;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_UP) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.x -= owlShift;
+    }
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.z -= owlShift;
+    }
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.x += owlShift;
+    }
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.z += owlShift;
+    }
+    
+    if (glfwGetKey(window, GLFW_KEY_MINUS) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.y += owlShift;
+    }
+    if (glfwGetKey(window, GLFW_KEY_EQUAL) == (GLFW_PRESS || GLFW_REPEAT))
+    {
+        owlPos.y -= owlShift;
+    }
+}
+
+void cycleOY(GLfloat& y,GLfloat x, ParabConst comp)
+{
+    y = comp.a * (x - comp.x0) * (x - comp.x0) + comp.y0;
+}
+void cycleOX(GLfloat &x, GLfloat delta, GLfloat end)
+{
+    while (x < end)
+    {
+        x += delta;
+    }
+}
+ParabConst findParabComponents(glm::vec3 dot1, glm::vec3 dot2, glm::vec3 dot3)
+{
+    ParabConst temp;
+    GLfloat c = (dot1.y - dot2.y) / (dot2.y - dot3.y);
+    temp.x0 = (dot1.x * dot1.x + dot2.x * dot2.x + c * (dot2.x * dot2.x - dot3.x * dot3.x)) / (-dot1.x + dot2.x + c * dot2.x - c * dot3.x);
+    temp.a = (dot1.y - dot2.y) / ((dot1.x - temp.x0) * (dot1.x - temp.x0) - (dot2.x - temp.x0) * (dot2.x - temp.x0));
+    temp.y0 = dot1.y - temp.a * (dot1.x - temp.x0) * (dot1.x - temp.x0);
+    return temp;
+  /*  let c = (y1 - y2) / (y2 - y3)
+    x0 = (-x1 ^ 2 + x2 ^ 2 + c * (x2 ^ 2 - x3 ^ 2)) / (2.0 * (-x1 + x2 + c * x2 - c * x3))
+    a = (y1 - y2) / ((x1 - x0) ^ 2 - (x2 - x0) ^ 2)
+    y0 = y1 - a * (x1 - x0) ^ 2*/
+}

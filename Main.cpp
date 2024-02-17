@@ -4,7 +4,9 @@ namespace fs = std::filesystem;
 //------------------------------
 
 #include "Model.h"
+#include "Func.h"
 #include <set>
+#include <thread>
 
 //ASSIMP
 #include <assimp/config.h>
@@ -15,6 +17,14 @@ namespace fs = std::filesystem;
 //4:3
 const unsigned int width = 1024;
 const unsigned int height = 768;
+
+bool isRotateStatue = false;
+char directionStatue = 0;
+
+bool isFlying = false;
+
+glm::vec3 owlPos;
+GLfloat owlShift = 13.0f;
 
 int main()
 {
@@ -36,6 +46,7 @@ int main()
 		return -1;
 	}
 	// ОКНО
+	glfwSetKeyCallback(window, key_callback); // привязываем функция обработчика нажатий
 	glfwMakeContextCurrent(window);
 
 	//загрузка GLAD
@@ -48,7 +59,7 @@ int main()
 
 	// СВЕТОВАЯ МОДЕЛЬ
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);//
-	glm::vec3 lightPos = glm::vec3(0.5f, 6.5f, 0.5f);//!!!
+	glm::vec3 lightPos = glm::vec3(0.0f, 0.2f, 0.0f);//!!!
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
@@ -89,130 +100,161 @@ int main()
 	Transform moving;
 
 	moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.5f, 1.1f));
 	glm::quat axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	glm::quat axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY* axisX);
-	moving.translate(glm::vec3(2.0f, 0.0f, 0.0f));
+
+	moving.transVec = glm::vec3(2.0f, 0.0f, 0.0f);
+	moving.rotQuat = axisY * axisX;
+	moving.scaVec = glm::vec3(curtH, 0.5f, 1.1f);
 
 	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
 
-	//floor
+	////floor
 	moving.Clear();
-	moving.scale(glm::vec3(0.03f, 0.03f, 0.03f));
 	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	moving.rotate(axisY);
-	moving.translate(glm::vec3(0.0f, 3.0f, 0.0f));
+
+	moving.transVec = glm::vec3(0.0f, 3.0f, 0.0f);
+	moving.rotQuat = axisY;
+	moving.scaVec = glm::vec3(0.03f, 0.03f, 0.03f);
 
 	modelPT.push_back(Path_Trans("Resourses/Models/floor/scene.gltf", moving));
 
 
-	//sofa
+	////sofa
 	moving.Clear();
-	moving.scale(glm::vec3(0.85f, 0.85f, 0.85f));
 	axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 	axisY = glm::angleAxis(glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	moving.rotate(axisX * axisY);
-	moving.translate(glm::vec3(-30.0f, 0.0f, -85.0f));
+	
+	moving.transVec = glm::vec3(-30.0f, 0.0f, -85.0f);
+	moving.rotQuat = axisX * axisY;
+	moving.scaVec = glm::vec3(0.85f, 0.85f, 0.85f);
+
 	modelPT.push_back(Path_Trans("Resourses/Models/sofa/scene.gltf", moving));
 
-	////venera
-	 moving.Clear();
-	moving.scale(glm::vec3(5.5f, 5.5f, 5.5f));
+	//////venera
+	moving.Clear();
 	axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 	axisY = glm::angleAxis(glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	moving.rotate(axisX * axisY);
-	moving.translate(glm::vec3(-30.0f, 0.0f, -40.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/venera/scene.gltf", moving));
 
-	////floor_lamp
-	 moving.Clear();
-	moving.scale(glm::vec3(0.011f, 0.011f, 0.011f));
+	moving.transVec = glm::vec3(-30.0f, 0.0f, -40.0f);
+	moving.rotQuat = axisX * axisY;
+	moving.scaVec = glm::vec3(5.5f, 5.5f, 5.5f);
+
+	//
+	modelPT.push_back(Path_Trans("Resourses/Models/venera/scene.gltf", moving));
+	auto it_statue = modelPT.back();
+
+	//////floor_lamp
+	moving.Clear();
 	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	moving.rotate(axisY);
-	moving.translate(glm::vec3(0.01f, 0.01f, 1.7f));
+
+	moving.transVec = glm::vec3(0.01f, 0.01f, 1.7f);
+	moving.rotQuat = axisY;
+	moving.scaVec = glm::vec3(0.011f, 0.011f, 0.011f);
+
 	modelPT.push_back(Path_Trans("Resourses/Models/floor_lamp/scene.gltf", moving));
 
-	////owl
-	 moving.Clear();
-	moving.scale(glm::vec3(1.5f, 1.5f, 1.5f));
+	//////owl
+	moving.Clear();
 	axisY = glm::angleAxis(glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisX * axisY);
-	moving.translate(glm::vec3(525.0f, -75.0f, -590.0f));
+
+	owlPos = glm::vec3(525.0f, -75.0f, -590.0f);
+
+	moving.transVec = owlPos;
+	moving.rotQuat = axisX * axisY;
+	moving.scaVec = glm::vec3(1.5f, 1.5f, 1.5f);
+
 	modelPT.push_back(Path_Trans("Resourses/Models/owl/scene.gltf", moving));
 
-	////rick_owens
-	 moving.Clear();
-	moving.scale(glm::vec3(0.05f, 0.05f, 0.05f));
+	//////rick_owens
+	/*moving.Clear();
 	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	axisX = glm::angleAxis(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(15.0f, -3.5f, -0.55f));
-	modelPT.push_back(Path_Trans("Resourses/Models/rick_owens/scene.gltf", moving));
 
-	////curtains r-d
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.5f, 1.1f));
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(-1.4f, 0.05f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	moving.transVec = glm::vec3(15.0f, -3.5f, -0.55f);
+	moving.rotQuat = axisY * axisX;
+	moving.scaVec = glm::vec3(0.05f, 0.05f, 0.05f);
 
-	////curtains u-r
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.8f, 1.4f));//
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(3.7f, -2.3f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	modelPT.push_back(Path_Trans("Resourses/Models/rick_owens/scene.gltf", moving));*/
 
-	////curtains d
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.8f, 1.4f));//
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(-270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY* axisX);
-	moving.translate(glm::vec3(-3.3f, -2.0f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	//////curtains r-d
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-	////curtains l-d
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.5f, 1.1f));
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(-1.4f, -6.6f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	//moving.transVec = glm::vec3(-1.4f, 0.05f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.5f, 1.1f);
 
-	//// curtains l-u
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.5f, 1.1f));
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(2.0f, -6.625f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
 
-	////curtains u-l
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.8f, 1.4f));//
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY * axisX);
-	moving.translate(glm::vec3(3.7f, -5.3f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	////////curtains u-r
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-	////curtains d-l
-	 moving.Clear();
-	moving.scale(glm::vec3(curtH, 0.8f, 1.4f));//
-	axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	axisX = glm::angleAxis(glm::radians(-270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	moving.rotate(axisY* axisX);
-	moving.translate(glm::vec3(-3.3f, -5.0f, 0.0f));
-	modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+	//moving.transVec = glm::vec3(3.7f, -2.3f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.8f, 1.4f);
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+
+	////////curtains d
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(-270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//moving.transVec = glm::vec3(-3.3f, -2.0f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.8f, 1.4f);
+
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+
+	////////curtains l-d
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//moving.transVec = glm::vec3(-1.4f, -6.6f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.5f, 1.1f);
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+
+	//////// curtains l-u
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//moving.transVec = glm::vec3(2.0f, -6.625f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.5f, 1.1f);
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+
+	////////curtains u-l
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//moving.transVec = glm::vec3(3.7f, -5.3f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.8f, 1.4f);
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
+
+	////////curtains d-l
+	//moving.Clear();
+	//axisY = glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//axisX = glm::angleAxis(glm::radians(-270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	//moving.transVec = glm::vec3(-3.3f, -5.0f, 0.0f);
+	//moving.rotQuat = axisY * axisX;
+	//moving.scaVec = glm::vec3(curtH, 0.8f, 1.4f);
+
+	//modelPT.push_back(Path_Trans("Resourses/Models/curtains/scene.gltf", moving));
 
 	//ВЕКТОР С ОБЪЕКТАМИ МОДЕЛЕЙ
 	std::vector<Model*> modelObj;
@@ -237,8 +279,35 @@ int main()
 	}
 
 	// ИГРОВОЙ ЦИКЛ
+
+	float
+		elapsed = 0,
+		rotationHumanSkull = 0,
+		moveSkulls = 0,
+		angle = 0,
+		a = 2.f, _cos, _sin, ssin, phi = elapsed, // переменные лемнискаты Бернулли
+		x, y; // для параметрического уравнения лемнискаты Бернулли
+
+	glm::quat yY;
+
+	double startTime = glfwGetTime();
+	
+	typedef struct modelRotations
+	{
+		GLfloat angle = 0.4f;
+		glm::quat CW = glm::angleAxis(glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
+		glm::quat CC = glm::angleAxis(glm::radians(-angle), glm::vec3(0.0f, 1.0f, 0.0f));
+	}modelRotations;
+
+	modelRotations statue;
+
+
+	ParabConst owlParab = findParabComponents(owlPos, glm::vec3(500.0f, -55.0f, owlPos.z), glm::vec3(480.0f, -110.0f, owlPos.z));
+
+	GLfloat owlX = owlPos.x;
 	while (!glfwWindowShouldClose(window))
 	{
+		//angle = (GLfloat)glfwGetTime() * 0.2f;
 		// задний фон
 		//glClearColor(0.07f, 0.13f, 0.17f, 1.0f);//
 		glClearColor(0.07f, 0.07f, 0.07f, 1.0f);//
@@ -252,8 +321,39 @@ int main()
 		
 		//ОРИСОВКА ОБЪЕКТОВ МОДЕЛЕЙ НА СЦЕНЕ
 		auto i = std::make_pair(modelObj.begin(), modelPT.begin());
+
 		for (; i.first != modelObj.end(); ++i.first, ++i.second)
 		{
+			if ((*i.second).path == "Resourses/Models/venera/scene.gltf")
+			{
+				if (isRotateStatue && !directionStatue) //против часовой - 0
+				{
+					(*i.second).transform.rotQuat *= statue.CW;
+					//(*i.second).transform = it_statue.transform;
+				}
+
+				else if (isRotateStatue && directionStatue) //по часовой - 1
+				{
+					(*i.second).transform.rotQuat *= statue.CC;
+					//(*i.second).transform = it_statue.transform;
+				}
+			}
+
+			if ((*i.second).path == "Resourses/Models/owl/scene.gltf")
+			{
+				if (isFlying)
+				{
+					std::thread xThread(cycleOX, owlPos.x, -5.0f, 300.0f);
+					std::thread yThread(cycleOY, owlPos.y, owlPos.x, owlParab);
+					//открыть поток приближения x
+					//
+					xThread.detach();
+					yThread.detach();
+
+				}
+				(*i.second).transform.transVec = owlPos;
+			}
+			//else
 			(*i.first)->Draw(shaderProgram, camera, (*i.second).transform);
 		}
 		// подгрузка переднего и зданего буфера
@@ -261,7 +361,6 @@ int main()
 		//ПРОВЕРКА СОБЫТИЙ
 		glfwPollEvents();
 	}
-
 	//УДАЛЕНИЕ ОЧИСТКА ПАМЯТИ
 
 	shaderProgram.Delete();
