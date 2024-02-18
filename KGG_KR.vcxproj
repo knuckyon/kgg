@@ -198,11 +198,13 @@
     <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_baseColor.png" />
     <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_metallicRoughness.png" />
     <Image Include="Resourses\Models\lowpoly_table\textures\lambert1_normal.png" />
+    <Image Include="Resourses\Models\moon\textures\Material.001_baseColor.png" />
     <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_baseColor.png" />
     <Image Include="Resourses\Models\owl\textures\M_GreatHornedOwl_normal.png" />
     <Image Include="Resourses\Models\rick_owens\textures\defaultMat_baseColor.png" />
     <Image Include="Resourses\Models\rick_owens\textures\defaultMat_normal.png" />
     <Image Include="Resourses\Models\scroll\textures\lambert4SG_baseColor.png" />
+    <Image Include="Resourses\Models\sky\textures\material_emissive.png" />
     <Image Include="Resourses\Models\sofa\textures\Leather_mat_baseColor.jpeg" />
     <Image Include="Resourses\Models\sofa\textures\Leather_mat_metallicRoughness.png" />
     <Image Include="Resourses\Models\sofa\textures\Leather_mat_normal.png" />
@@ -268,12 +270,16 @@
     <None Include="Resourses\Models\leather_sofa\scene.gltf" />
     <None Include="Resourses\Models\lowpoly_table\scene.bin" />
     <None Include="Resourses\Models\lowpoly_table\scene.gltf" />
+    <None Include="Resourses\Models\moon\scene.bin" />
+    <None Include="Resourses\Models\moon\scene.gltf" />
     <None Include="Resourses\Models\owl\scene.bin" />
     <None Include="Resourses\Models\owl\scene.gltf" />
     <None Include="Resourses\Models\rick_owens\scene.bin" />
     <None Include="Resourses\Models\rick_owens\scene.gltf" />
     <None Include="Resourses\Models\scroll\scene.bin" />
     <None Include="Resourses\Models\scroll\scene.gltf" />
+    <None Include="Resourses\Models\sky\scene.bin" />
+    <None Include="Resourses\Models\sky\scene.gltf" />
     <None Include="Resourses\Models\sofa\scene.bin" />
     <None Include="Resourses\Models\sofa\scene.gltf" />
     <None Include="Resourses\Models\sword\scene.bin" />
@@ -282,6 +288,8 @@
     <None Include="Resourses\Models\telephone\scene.gltf" />
     <None Include="Resourses\Models\venera\scene.bin" />
     <None Include="Resourses\Models\venera\scene.gltf" />
+    <None Include="Resourses\Shaders\frag.glsl" />
+    <None Include="Resourses\Shaders\vert.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resourses\Shaders\fragment.txt" />

@@ -88,6 +88,12 @@
     <Filter Include="Файлы ресурсов\Resourses\Models\armchair">
       <UniqueIdentifier>{c47dfb46-89e0-4687-96de-80fc5db1ab73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\sky">
+      <UniqueIdentifier>{58a720ce-f2af-41c5-8ebb-68d397436778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Resourses\Models\moon">
+      <UniqueIdentifier>{c4f4b851-469f-4aa4-8f98-397c23c76355}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -397,6 +403,12 @@
     <Image Include="Resourses\Models\armchair\textures\lambert10SG_specularGlossiness.png">
       <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
     </Image>
+    <Image Include="Resourses\Models\sky\textures\material_emissive.png">
+      <Filter>Файлы ресурсов\Resourses\Models\sky</Filter>
+    </Image>
+    <Image Include="Resourses\Models\moon\textures\Material.001_baseColor.png">
+      <Filter>Файлы ресурсов\Resourses\Models\moon</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resourses\models\bunny\scene.bin">
@@ -500,6 +512,24 @@
     </None>
     <None Include="Resourses\Models\armchair\scene.gltf">
       <Filter>Файлы ресурсов\Resourses\Models\armchair</Filter>
+    </None>
+    <None Include="Resourses\Shaders\frag.glsl">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </None>
+    <None Include="Resourses\Shaders\vert.glsl">
+      <Filter>Файлы ресурсов\Resourses\Shaders</Filter>
+    </None>
+    <None Include="Resourses\Models\sky\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\sky</Filter>
+    </None>
+    <None Include="Resourses\Models\sky\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\sky</Filter>
+    </None>
+    <None Include="Resourses\Models\moon\scene.bin">
+      <Filter>Файлы ресурсов\Resourses\Models\moon</Filter>
+    </None>
+    <None Include="Resourses\Models\moon\scene.gltf">
+      <Filter>Файлы ресурсов\Resourses\Models\moon</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

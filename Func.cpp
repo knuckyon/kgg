@@ -209,21 +209,22 @@ void cycleOY(GLfloat& y, GLfloat& x, ParabConst comp)
 }
 void cycleOX(GLfloat& x, GLfloat& y, ParabConst comp, GLfloat delta, GLfloat end)
 {
-    cout << "vizov X: ";
+    //cout << "vizov X: ";
    
     //this_thread::sleep_for(chrono::milliseconds(500));
-    if (x < end)
+    if (x <= end)
     {
         isFlying = false;
     }
-    while (x > end)
+    while (isFlying && x > end)
     {
         x += delta;
         y = comp.a * (x - comp.x0) * (x - comp.x0) + comp.y0;
        // cout << x << endl;
-        cout << "owlPos.x " << owlPos.x << endl;
-        this_thread::sleep_for(chrono::milliseconds(800));
+        //cout << "owlPos.x " << owlPos.x << endl;
+        this_thread::sleep_for(chrono::milliseconds(200));//fps.count
     }
+    this_thread::sleep_for(chrono::milliseconds(200));//fps count
     //isFlying = false;
 }
 ParabConst findParabComponents(glm::vec3 dot1, glm::vec3 dot2, glm::vec3 dot3)

@@ -16,10 +16,14 @@ public:
 	//копирования констр
 	Model(const Model& original);
 
-	void Draw(Shader& shader, Camera& camera, Transform moving);
+	void setMaterial(Material material);
+
+	void Draw(Shader& shader, Camera& camera, Transform moving, LightsInfo lights);
 
 private:
 	const char* file;
+	Material material;
+
 	std::vector<unsigned char> data;
 	json JSON;
 

@@ -78,16 +78,9 @@ typedef struct Transform
 		rotQuat = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
 		scaVec = glm::vec3(1.0f, 1.0f, 1.0f);
 	}
-} Transform;
+}Transform;
 
-typedef struct modelRotations
-{
-	GLfloat angle = 0.4f;
-	glm::quat CW = glm::angleAxis(glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::quat CC = glm::angleAxis(glm::radians(-angle), glm::vec3(0.0f, 1.0f, 0.0f));
-}modelRotations;
-
-struct Material
+typedef struct Material
 {
     glm::vec3 ka; // коэф. фонового отражения (цвет фонового освещения)
     glm::vec3 kd; // коэф. диффузного отражения (цвет объекта)
@@ -102,7 +95,44 @@ struct Material
         ks = glm::vec3(0.633, 0.727811, 0.633);
         shininess = 128 * 0.6;
     };
-};
+
+    void Clear()
+    {
+        ka = glm::vec3(0.0215, 0.1745, 0.0215);
+        kd = glm::vec3(0.07568, 0.61424, 0.07568);
+        ks = glm::vec3(0.633, 0.727811, 0.633);
+        shininess = 128 * 0.6;
+    }
+    void Pearl()
+    {
+        ka = glm::vec3(0.25, 0.20725, 0.20725);
+        kd = glm::vec3(1, 0.829, 0.829);
+        ks = glm::vec3(0.296648, 0.296648, 0.296648);
+        shininess = 0.088;
+    }
+}Material;
+
+typedef struct PathTransMat
+{
+    std::string path;
+    Transform transform;
+    Material material;
+
+    PathTransMat(std::string path, Transform transform, Material material)
+    {
+        PathTransMat::path = path;
+        PathTransMat::transform = transform;
+        PathTransMat::material = material;
+    }
+} PathTransMat;
+
+typedef struct modelRotations
+{
+	GLfloat angle = 0.8f;
+	glm::quat CW = glm::angleAxis(glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::quat CC = glm::angleAxis(glm::radians(-angle), glm::vec3(0.0f, 1.0f, 0.0f));
+}modelRotations;
+
 
 // Структура с описанием параметров фонового освещения
 struct DirLight

@@ -20,13 +20,18 @@ Model::Model(const Model& original)
 	
 }
 
-void Model::Draw(Shader& shader, Camera& camera, Transform moving)
+void Model::Draw(Shader& shader, Camera& camera, Transform moving, LightsInfo lights)
 {
 	// проход по всем сеткам и отрисовка их
 	for (unsigned int i = 0; i < meshes.size(); i++)
 	{
-		meshes[i].Mesh::Draw(shader, camera, moving, matricesMeshes[i]);
+		meshes[i].Mesh::Draw(shader, camera, moving, lights, material, matricesMeshes[i]);
 	}
+}
+
+void Model::setMaterial(Material material)
+{
+	Model::material = material;
 }
 
 void Model::loadMesh(unsigned int indMesh)
